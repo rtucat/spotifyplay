@@ -1,6 +1,19 @@
-var http = require('http');
+const http = require('http');
 
-http.createServer(function (req, res) {
-    res.writeHead(200, {'Content-Type': 'text/html'});
+const PORT = process.env.PORT || 8080;
+
+const server = http.createServer((req, res) => {
+    res.writeHead(200, { 'Content-Type': 'text/html' });
     res.end('Hello World!');
-}).listen(8080);
+});
+
+server.listen(PORT, () => {
+    console.log(`Server listening on port ${PORT}`);
+});
+
+server.on('error', err => {
+    console.error(`Failed to start server: ${err.message}`);
+    process.exit(1);
+});
+
+module.exports = server;
