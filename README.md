@@ -1,2 +1,2 @@
 # spotifyplay
-Playing with Spotify API with node.js
+Playing with Spotify API with Node.js
